@@ -6,13 +6,8 @@ init(autoreset=True)
 
 tasks = []
 
+# Load Tasks from File
 
-# ----------------------------
-# Load Tasks from File
-# ----------------------------
-# ----------------------------
-# Load Tasks from File
-# ----------------------------
 def load_tasks():
 
     global tasks
@@ -43,9 +38,9 @@ def load_tasks():
 
         file.close()
 
-# ----------------------------
+
 # Save Tasks
-# ----------------------------
+
 def save_tasks():
 
     file = open("tasks.txt", "w")
@@ -65,9 +60,8 @@ def save_tasks():
     file.close()
 
 
-# ----------------------------
 # Welcome Screen
-# ----------------------------
+
 def welcome():
 
     print(Fore.LIGHTMAGENTA_EX+"=" * 45)
@@ -89,9 +83,9 @@ def welcome():
     input(Fore.WHITE+"\nPress Enter to Continue...")
 
 
-# ----------------------------
+
 # Dashboard
-# ----------------------------
+
 def dashboard():
 
     total = len(tasks)
@@ -117,11 +111,9 @@ def dashboard():
     print(Fore.LIGHTMAGENTA_EX+"=" * 50)
 
 
-# ----------------------------
+
 # Menu
-# ----------------------------
-# Menu
-# ----------------------------
+
 def menu():
 
     if len(tasks) == 0:
@@ -140,7 +132,8 @@ def menu():
         print(Fore.WHITE+"3. Mark Task as Completed")
         print(Fore.WHITE+"4. Delete Task")
         print(Fore.WHITE+"5. Exit")
-# ----------------------------
+
+#add task
 def add_task():
 
     try:
@@ -154,10 +147,10 @@ def add_task():
 
         print(Fore.LIGHTMAGENTA_EX+"\nTask", i + 1)
 
-        # Task Name
+       
         name = input(Fore.WHITE+"Enter Task Name : ")
 
-        # Category
+        
         print(Fore.LIGHTMAGENTA_EX+"\nChoose Category")
         print(Fore.WHITE+"1. Study")
         print(Fore.WHITE+"2. Personal")
@@ -186,7 +179,7 @@ def add_task():
             print(Fore.LIGHTMAGENTA_EX+"Invalid choice! Default category set to Personal.")
             category = "Personal"
 
-        # Important
+      
         important = input(Fore.WHITE+"Is it Important? (Yes/No): ")
 
         note = ""
@@ -194,8 +187,7 @@ def add_task():
         if important.lower() == "yes":
             note = input(Fore.LIGHTMAGENTA_EX+"Enter Note: ")
 
-        # Due Date
-            # Due Date
+       
         while True:
 
             date = input(Fore.LIGHTMAGENTA_EX+"Enter Completion Date (dd/mm/yyyy): ")
@@ -218,10 +210,10 @@ def add_task():
 
                 print(Fore.WHITE+"❌ Invalid date format.")
                 print(Fore.LIGHTMAGENTA_EX+"Please enter the date in dd/mm/yyyy format.")
-        # Reminder
+      
         reminder = input(Fore.WHITE+"Reminder (Yes/No): ")
 
-        # Store Task
+        
         task = {
             "name": name,
             "category": category,
@@ -237,9 +229,9 @@ def add_task():
     save_tasks()
 
     print(Fore.LIGHTMAGENTA_EX+"\nTasks Added Successfully!")
-    # ----------------------------
+   
 # View Tasks
-# ----------------------------
+
 def view_tasks():
     
 
@@ -266,9 +258,9 @@ def view_tasks():
         print(Fore.WHITE+"Status      :", task["status"])
 
         print(Fore.LIGHTMAGENTA_EX+"-" * 50)
-# ----------------------------
+
 # Complete Task
-# ----------------------------
+
 def complete_task():
 
     if len(tasks) == 0:
@@ -292,9 +284,9 @@ def complete_task():
 
     except ValueError:
         print(Fore.LIGHTMAGENTA_EX+"Please enter a valid number.")
-# ----------------------------
+
 # Delete Task
-# ----------------------------
+
 def delete_task():
 
     if len(tasks) == 0:
@@ -320,9 +312,9 @@ def delete_task():
     except ValueError:
         print(Fore.LIGHTMAGENTA_EX+"Please enter a valid number.")
 
-    # ----------------------------
+  
 # Main Program
-# ----------------------------
+
 
 load_tasks()
 welcome()
